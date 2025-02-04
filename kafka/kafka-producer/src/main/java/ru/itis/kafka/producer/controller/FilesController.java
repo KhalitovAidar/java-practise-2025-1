@@ -28,13 +28,16 @@ public class FilesController {
 
         CompletableFuture<SendResult<String, String>> fileCompletableFuture = kafkaTemplate.send(FILES_TOPIC, fileName);
         handleSendResult(FILES_TOPIC, fileName, fileCompletableFuture);
+        System.out.println("here1");
 
         if (fileName.endsWith(".jpg") || fileName.endsWith(".jpeg") || fileName.endsWith(".png")) {
             CompletableFuture<SendResult<String, String>> imageCompletableFuture = kafkaTemplate.send(IMAGES_TOPIC, fileName);
             handleSendResult(IMAGES_TOPIC, fileName, imageCompletableFuture);
+            System.out.println("here2");
         } else {
             CompletableFuture<SendResult<String, String>> document = kafkaTemplate.send(DOCUMENTS_TOPIC, fileName);
             handleSendResult(DOCUMENTS_TOPIC, fileName, document);
+            System.out.println("here3");
         }
 
         return null;
