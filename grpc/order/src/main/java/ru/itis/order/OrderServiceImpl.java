@@ -1,8 +1,8 @@
 package ru.itis.order;
 
 import io.grpc.stub.StreamObserver;
+import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import ru.itis.order.proto.OrderRequest;
 import ru.itis.order.proto.OrderResponse;
 import ru.itis.order.proto.CreateOrderRequest;
@@ -11,7 +11,7 @@ import ru.itis.order.proto.UserRequest;
 import ru.itis.order.proto.UserResponse;
 import ru.itis.order.proto.UserServiceGrpc;
 
-@Service
+@GrpcService
 public class OrderServiceImpl extends OrderServiceGrpc.OrderServiceImplBase {
 
     @Autowired

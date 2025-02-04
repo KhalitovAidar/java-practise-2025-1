@@ -1,14 +1,14 @@
 package ru.itis.user;
 
 import io.grpc.stub.StreamObserver;
+import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import ru.itis.user.proto.UserRequest;
 import ru.itis.user.proto.UserResponse;
 import ru.itis.user.proto.CreateUserRequest;
 import ru.itis.user.proto.UserServiceGrpc;
 
-@Service
+@GrpcService
 public class UserServiceImpl extends UserServiceGrpc.UserServiceImplBase {
 
     @Autowired
